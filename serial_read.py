@@ -1,7 +1,7 @@
 import serial
 import numpy as np
 
-port = 'COM5'  # Replace 'X' with the actual port number or '/dev/ttyX' for Linux
+port = '/dev/ttyUSB2'  # Replace 'X' with the actual port number or '/dev/ttyX' for Linux
 baud_rate = 57600  # Should match the baud rate set in the Arduino code
 ser = serial.Serial(port, baud_rate)
 
@@ -17,6 +17,7 @@ while True:
             if data_str.startswith('start'):
                 initialized = True
                 sensor_id = 0
+                print("start")
                 
             elif initialized:
                 red = int(data_str)
